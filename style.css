@@ -1,0 +1,228 @@
+/* 1. FONT IMPORTS */
+@import url("https://unpkg.com/@fontsource/geist-sans@5.0.3/index.css");
+@import url("https://unpkg.com/@fontsource/geist-mono@5.0.3/index.css");
+
+/* 2. CORE LAYOUT */
+body {
+    margin: 0;
+    background-color: #1a1a2e;
+    color: #ffffff;
+    font-family: "Geist Sans", sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* 3. NAVIGATION BAR STYLING */
+.navbar {
+    width: 100%;
+    background-color: rgba(10, 10, 20, 0.8); /* Semi-transparent */
+    backdrop-filter: blur(10px); /* Modern blur effect */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: fixed; /* Stays at top while scrolling */
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.nav-logo {
+    font-family: "Geist Mono", monospace;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #ffbc42;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 0.9rem;
+    font-family: "Geist Sans", sans-serif;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ffbc42;
+    opacity: 1;
+}
+
+/* 4. MAIN CONTAINER ADJUSTMENT */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 120px 20px 40px; /* Top padding added to account for fixed navbar */
+    margin: 0 auto;
+}
+
+/* 5. TITLE & ANIMATIONS */
+@keyframes slidein {
+    0% { transform: translateX(2000px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+.title {
+    color: #ffbc42;
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    font-weight: 800;
+    margin: 0;
+    letter-spacing: -0.03em;
+    animation: slidein 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+.title:hover {
+    color: #ffffff;
+    text-shadow: 0 0 30px rgba(255, 188, 66, 0.4);
+}
+
+.subtitle {
+    font-family: "Geist Mono", monospace;
+    font-size: 1rem;
+    opacity: 0.6;
+    margin-top: 5px;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+}
+
+.box-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.box {
+    position: relative;
+    width: 320px;
+    height: 220px;
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.box:hover {
+    transform: translateY(-12px);
+    border-color: #ffbc42;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.box:hover img {
+    opacity: 1;
+    transform: scale(1.05);
+}
+.version-tag {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 0.7rem;
+    font-family: "Geist Mono", monospace;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 4px 8px;
+    border-radius: 4px;
+    z-index: 2;
+    opacity: 0.7;
+}
+
+.card-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    margin: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    z-index: 2;
+}
+
+/* Specific Card Accents */
+.footbrawl-card:hover {
+    box-shadow: 0 20px 40px rgba(255, 188, 66, 0.2);
+}
+
+.pokemon-card:hover {
+    box-shadow: 0 20px 40px rgba(167, 139, 250, 0.2);
+}
+/* Ensures the link covers the whole card and removes default underlines */
+.card-link {
+    text-decoration: none;
+    color: inherit; /* Keeps your white text color */
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* Fixes a small alignment issue that can happen with anchors */
+.card-content {
+    height: 100%;
+    width: 100%;
+}
+h1{
+    color: #ffbc42;
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    font-weight: 800;
+    margin-top: 100px;
+    letter-spacing: -0.03em;
+    animation: slidein 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+h1:hover{
+    color: #ffffff;
+    text-shadow: 0 0 30px rgba(255, 188, 66, 0.4);
+}
+.info-text-mono {
+    font-family: "Geist Mono", monospace;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7); /* Softened white for readability */
+    letter-spacing: -0.01em;
+    max-width: 1400px;
+    border-left: 2px solid #ffbc42; /* Vertical accent line */
+    padding-left: 15px;
+}
+.info-text-mono:hover{
+    color: #ffffff;
+    text-shadow: 0 0 30px rgba(255, 188, 66, 0.4);
+}
+.smoll-header{
+    color: #ffbc42;
+    font-size: 50px;
+    font-weight: 800;
+    margin-top: 20px;
+    margin-left: 20px;
+    letter-spacing: -0.03em;
+    animation: slidein 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+.smoll-header:hover{
+    color: #ffffff;
+    text-shadow: 0 0 30px rgba(255, 188, 66, 0.4);
+}
